@@ -17,7 +17,7 @@
   "1014": "variable shadowing",
   "1015": "unserialize vulerablity",
   "10001": "Reflected XSS for echo",
-  "3001": "JQuery \u539f\u578b\u94fe\u6c61\u67d3",
+  "3001": "JQuery 原型链污染",
   "3002": "XSS in JS",
   "3003": "RCE in JS",
   "3004": "URL Redirect",
@@ -28,7 +28,7 @@
   "3008": "Chrome ext function XSS",
   "3010": "Handlebars XSS",
   "3009": "JQuery eval",
-  "3011": "executeScript\u4e2d\u53c2\u6570\u62fc\u63a5",
+  "3011": "executeScriptexecuteScript中参数拼接",
   "30061": "JQuery HTML attr injection",
-  "30111": "addEventListener message param \u53ef\u63a7"
+  "30111": "addEventListener message param 可控"
 }
