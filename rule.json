@@ -1,5 +1,5 @@
 {
-    "Reflected XSS": "1000,10002",
+    "Reflected XSS": "1000",
     "cURL SSRF": "1001",
     "file_get_contents SSRF": "1002",
     "get_headers SSRF": "1003",

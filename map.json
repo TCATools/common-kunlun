@@ -1,6 +1,5 @@
 {
   "1000": "Reflected XSS",
-  "10002": "Reflected XSS",
   "1001": "cURL SSRF",
   "1002": "file_get_contents SSRF",
   "1003": "get_headers SSRF",
