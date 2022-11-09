@@ -30,7 +30,7 @@ class KunlunM(object):
         with open("map.json", 'r') as rf:
             rule_map = json.load(rf)
         if not os.path.exists(result_file):
-            logger.warning("结果文件为空，没有错误")
+            logger.warning("Result is empty")
         else:
             with open(result_file, 'r') as rf:
                 reader = csv.reader(rf,delimiter=',')
