@@ -27,8 +27,9 @@ class KunlunM(object):
         """
         """
         issues = []
-        with open("map.json", 'r') as rf:
-            rule_map = json.load(rf)
+        with open("map.json", 'rb') as rf:
+            content = self._decode(rf.read())
+            rule_map = json.load(content)
         if not os.path.exists(result_file):
             logger.warning("Result is empty")
         else:
@@ -61,8 +62,9 @@ class KunlunM(object):
             task_request = json.load(rf)
         task_params = task_request["task_params"]
         rules = task_params['rules']
-        with open("rule.json", 'r') as rf:
-            rule_map = json.load(rf)
+        with open("rule.json", "rb") as f:
+            content = self._decode(f.read())
+            rule_map = json.loads(content, strict=False)
         rules = ",".join([rule_map[x] for x in rules])
         del rule_map  # 清理变量
         result_file = os.path.join(os.getcwd(), "{}.csv".format(uuid.uuid1().hex))
@@ -74,6 +76,17 @@ class KunlunM(object):
         self.run_cmd(cmd)
         self.format_issue(result_file)
 
+    def _decode(self, text):
+        # 如果本来就是字符串,直接返回
+        if isinstance(text, str):
+            return text
+        try:
+            # -*- 默认采用UTF-8解码
+            return text.decode(encoding='UTF-8')
+        except UnicodeDecodeError:
+            # -*- 出现解码异常时，使用GBK解码且采取"surrogateescape"策略（表示只关注能正常解码的部分内容，其他内容使用unicode字符表示）
+            # -*- 参考文档：https://docs.python.org/3/howto/unicode.html#files-in-an-unknown-encoding
+            return text.decode(encoding="gbk", errors="surrogateescape")
 
 if __name__ == "__main__":
     KunlunM().run()
