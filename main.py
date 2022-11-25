@@ -21,7 +21,7 @@ class KunlunM(object):
         执行命令行
         """
         print("[run cmd] %s" % ' '.join(cmd_args))
-        subprocess.Popen(cmd_args).wait()
+        # subprocess.Popen(cmd_args).wait()
 
     def format_issue(self, result_file):
         """
