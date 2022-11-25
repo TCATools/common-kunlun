@@ -29,7 +29,7 @@ class KunlunM(object):
         issues = []
         with open("map.json", 'rb') as rf:
             content = self._decode(rf.read())
-            rule_map = json.load(content)
+            rule_map = json.loads(content)
         if not os.path.exists(result_file):
             logger.warning("Result is empty")
         else:
